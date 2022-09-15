@@ -10,7 +10,6 @@ for lista in range(0, 2):
     lista_notas.append(nota)
 
 media = sum(lista_notas) / len(lista_notas)
-print(media)
 situacao = 'Reprovado'
 
 if media >= 7:
@@ -18,5 +17,5 @@ if media >= 7:
     print("*")
     situacao = "aprovado"
 
-dicionario_alunos = {"Nome": nome,"Sobrenome": sobreNome,"Idade": idade,"Situacao": situacao}
-print(f"{dicionario_alunos['Nome']} {dicionario_alunos['Sobrenome']} {dicionario_alunos['Idade']} - {dicionario_alunos['Situacao']}")
+dicionario_alunos = {"Nome": nome,"Sobrenome": sobreNome,"Idade": idade,"Situacao": situacao, "Media": media}
+print(f"{dicionario_alunos['Nome']} {dicionario_alunos['Sobrenome']} {dicionario_alunos['Idade']} - {dicionario_alunos['Situacao']} {dicionario_alunos['Media']}")
