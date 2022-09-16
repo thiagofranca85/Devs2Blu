@@ -1,7 +1,8 @@
 # Dicionario
-pessoas = []
-thiago = {'Nome': 'Thiago','sobrenome':'França'}
-# luiza = {'Nome': 'luiza','sobrenome':'bissoni'}
+# pessoas = []
+# pessoas.append({'ID':0,'Nome': 'Thiago','sobrenome':'França'}) 
+# pessoas.append({'ID':1,'Nome': 'luiza','sobrenome':'bissoni'})
+
 
 # pessoas = [joao, luiza]
 
@@ -18,6 +19,8 @@ salario = float(input("Digite o seu salario: "))
 dicionario = {'Nome': nome,'SobreNome': sobreNome,'Idade':idade,'Salario':salario}
 
 print(dicionario)
+
+
 
 
 
