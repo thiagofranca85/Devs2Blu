@@ -17,7 +17,7 @@ while True:
     elif id == str(2):
         print(f"{border} Lista de Membros {border}")
         for i in livros:
-            print(livros.index, i)
+            print(f"{livros.index(i)} - {i}")
             sleep(2)
             
         print(f"{border}   Fim da Lista   {border}")
