@@ -17,3 +17,32 @@ Hierarquia de branch padrao
 main 
     homolog
             dev
+
+            Manipulando branch
+criando branch
+git checkout -b nome branch
+
+verificando branch
+git branch 
+
+mudando de branch
+git checkout nome branch
+
+subindo branch para github
+git push -u origin nome branch
+
+excluindo branch
+git branch -D nome branch
+
+merge  branch
+git merge  nome branch   
+
+mudando nome branch
+git branch -m    Novo nome  
+
+excluindo branch remota
+git push origin —delete nome branch 
+
+baixar branch remota
+git  checkout nome branch
+
