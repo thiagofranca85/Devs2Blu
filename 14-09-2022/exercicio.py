@@ -8,6 +8,7 @@ livros = []
 while True:
     print(f"{border} Cadastro de Livros {border}\n(1) Cadastrar Livros\n(2) Listar Livros Cadastrados\n(3) Sair")
     id = input("Opção: ")
+    
     if not(id.isnumeric()):
         print("Letras nao são validas como opção!")
         pass
