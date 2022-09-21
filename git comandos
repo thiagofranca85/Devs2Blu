@@ -18,6 +18,7 @@ main
     homolog
             dev
 
+
             Manipulando branch
 criando branch
 git checkout -b nome branch
