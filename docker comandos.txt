@@ -1,0 +1,30 @@
+- Lista todos os comandos docker
+docker --help
+
+- Deletar docker pela imagem ID
+docker rmi <idhashdodocker> (IMAGE ID)
+
+- Listar dockers pela imagem
+docker images
+
+- Ver containers ativos
+docker ps
+
+- Ver containers ativos e parados
+docker ps -a
+
+- Deletar container (Deleta direto)
+docker rm <idhashdaimage>
+
+- Pra deletar container, porem ele pergunta se que realmente continuar.
+- Remove todos os containers parados
+docker container prune
+
+- Abre nesse caso o ubuntu com terminal diretamente no cmd
+docker run -it ubuntu
+
+Ja do start pode ser apenas com o "i" desse jeito:
+docker start -i ubuntu
+
+Criar e startar container postgres
+docker run --name postgres-mordev -e POSTGRES_PASSWORD=123456 -e POSTGRES_USER=moredev -d -p 5432:5432 postgres
