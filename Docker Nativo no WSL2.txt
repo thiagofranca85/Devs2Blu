@@ -58,4 +58,6 @@ seu_usuario@seu_PC:~$
 Basta aguardar alguns segundos e seu docker estara rodando normalmente.
 Para verificar se ele esta rodando basta digitar "docker ps" por exemplo.
 
-
+source:
+https://stackoverflow.com/questions/65813979/sudo-systemctl-enable-docker-not-available-automatically-run-docker-at-boot-o
+https://askubuntu.com/questions/334318/sudoers-file-enable-nopasswd-for-user-all-commands
