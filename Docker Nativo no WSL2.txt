@@ -1,0 +1,63 @@
+Nesse site tem um passo a passo de como instalar o Docker Nativo usando WSL2 no windows 10 ou 11.
+https://github.com/codeedu/wsl2-docker-quickstart#docker-engine-docker-nativo-diretamente-instalado-no-wsl2
+
+>>> Porque usar o Docker Nativo no WSL2? <<< 
+Porque o uso de memoria é significantemente menor do que usar o Docker for Windows.
+
+** Depois de Instalar o Docker e Rodar usando o GUIA acima, esses comandos a seguir fazem ele abrir automaticamente ao iniciar o Ubuntu no WSL2
+** Sem ter que digitar "sudo service docker start"
+
+O que eu estou usando no meu PC (Windows 10) é:
+
+Alterar 2 Arquivos do sistema (Ubuntu) usando algum editor de texto, por exemplo o VIM.
+Por exemplo, pra abrir o arquivo voce pode usar este comando, usando o VIM como exemplo.
+
+** 1º Arquivo
+
+"sudo vim /etc/sudoers.d" (Sem as aspas)
+Voce vai abrir o arquivo sudoers.d e nele precisa adicionar o seguinte comando:
+
+(Substituir o username pelo seu usuario)
+username ALL = (ALL) NOPASSWD: ALL 
+Isso desabilita o password para todos programas no seu usuario.
+
+Ou vc pode colocar no final apenas para nao pedir senha no Docker
+username ALL = (ALL) NOPASSWD: /usr/sbin/service docker *
+
+Depois pra salvar o arquivo aperte ":" e digite "wq!" , por padrao no VIM ":wq" ja salva e fecha o arquivo,
+mas precisa do "!" para dar override, pois se trata de um arquivo de sistema.
+
+** 2º Arquivo
+
+No .profile é onde voce faz o docker iniciar com o Ubuntu WSL2. 
+Novamente na pasta do seu usuario, /home/seu_usuario (Voce pode digitar "pwd" pra saber onde esta)
+Se voce digiar "ls -a" voce vai ver a lista completa de arquivos na sua pasta.
+E vai aparecer o que vamos editar agora, o .profile.
+
+O arquivo que precisamos editar agora é o ".profile"
+Pra abrir e exatamente igual ao exemplo usado no primeiro.
+
+Basta digitar: "sudo vim .profile" (Não preciso dizer que não precisa das aspas certo? ^^)
+Ao abrir o arquivo, voce pode ir até o final e copiar em uma nova linha o seguinte comando:
+
+"sudo service docker status || sudo service docker start" (Já sabe né?)
+
+Depois basta digitar ":" e digitar "wq" (:wq), como é um arquivo de perfil voce consegue salvar sem o "!".
+
+**
+
+Após fazer isso, voce pode abrir o prompt do Windows, digitar "wsl --shutdown" e re-abrir novamente o seu Ubuntu WSL2.
+Assim voce vai "reiniciar" o WSL e o Ubuntu e se tudo estiver correto, vai aparecer a seguinte mensagem ao abrir o Ubuntu.
+
+-------------------------------------------------------------------
+ * Docker is not running
+ * Starting Docker: docker                                                                           [ OK ]
+seu_usuario@seu_PC:~$
+-------------------------------------------------------------------
+
+Basta aguardar alguns segundos e seu docker estara rodando normalmente.
+Para verificar se ele esta rodando basta digitar "docker ps" por exemplo.
+
+source:
+https://stackoverflow.com/questions/65813979/sudo-systemctl-enable-docker-not-available-automatically-run-docker-at-boot-o
+https://askubuntu.com/questions/334318/sudoers-file-enable-nopasswd-for-user-all-commands

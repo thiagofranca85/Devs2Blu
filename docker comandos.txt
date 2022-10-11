@@ -28,3 +28,62 @@ docker start -i ubuntu
 
 Criar e startar container postgres
 docker run --name postgres-mordev -e POSTGRES_PASSWORD=123456 -e POSTGRES_USER=moredev -d -p 5432:5432 postgres
+
+------- Novos comandos do Video do Network Chuck ------------------
+docker run -itd --rm --name nome busybox
+docker run -itd --rm -p 80:80 --name nome nginx (no caso do nginx se colocar porta 80 "-p porta:porta" abre no navegador)
+
+Pra executar um docker busybox por exemplo usar esse comando:
+docker exec -it nome sh
+
+Mostra os containers dentro da rede bridge do docker
+docker inspect bridge
+
+Mostra os IPs dentro do container
+ip add show
+
+------- Criar um rede PRIVADA dentro do docker
+------- Redes Isoladas --------
+Isolar uma rede(Network) dentro do docker (usernetwork)
+docker network create nomedanetwork
+
+* Pra deletar uma rede basta digitar
+docker network rm nomedanetwork
+
+Pra criar um container dentro da Rede/Network Privada/Customizada
+docker run -itd --rm --network nomedanetwork --name nomedocontainer busybox
+
+Criando um servidor dentro da network host elimina a necessidade de configuração de porta
+docker run -itd --rm --network host --name nomedocontainer nginx
+----------------------------------
+
+** Nao testei esse método ainda, mas documentei o que eu assisti **
+Criar uma rede VLAN dentro do docker:
+docker network create -d macvlan --subnet homenetwork --gateway gatewaydomodem -o parent=maininterfacename nomedaredeWLAN
+
+Criar container dentro desse network VLAN /IP - Usar um ip que nao esteja sendo usado no seu modem /tipodocontainer pode ser busybox ou qualquer outro nome.
+docker run -itd --rm --network nomedaredeWLAN --ip ipdesejado --name nomedocontainer tipodocontainer
+
+Outro exemplo do comando acima com IPs do Video /ip-range vc escolhe um IP livre dentro da sua rede
+docker network create -d macvlan --subnet 192.168.0.0/24 --gateway 192.168.0.1 --ip-range 192.168.0.256
+
+Promiscuous mode - Ativar na Virtual Machine / Rede Bridge / Em Advanced allow all in Promiscuous Mode
+Depois de configura a VM (Ex: VirtualBox) como acima digitar esse comando no Linux:
+ip link set nomedaredeWLAN promisc on
+
+Precisa do Promiscuous mode pra esse tipo de rede funcionar.
+Depois disso seria possivel por exemplo dar "ping" no container dentro dessa network e ver resposta do container.
+
+** Criando rede IPVLAN
+docker network create -d ipvlan --subnet homenetwork --gateway gatewaydomodem -o parent=maininterfacename nomedaredeIPVLAN
+
+Adicionando container nessa rede /busybox usado apenas como exemplo
+docker run -itd --rm --network nomedaredeIPVLAN --ip ip --name nomedocontainer busybox
+
+** Criando rede IPVLAN L3 (Layer 3) Repare que nesse modo nao é necessário usar o --gateway
+docker network create -d ipvlan --subnet ipsubnet/24 -o parent=maininterfacename -o ipvlan_mode=l3 --subnet outrasredes/24 nomedaredeIPVLANL3
+
+Criar container dentro da rede IPVLAN L3 / IP nao é obrigatorio mas vc pode escolher um disponivel dentro da sua rede / busybox apenas exemplo do tipo de container
+docker run -itd --rm --network nomedaredeIPVLANL3 --ip ipdesejado --name nomedocontainer busybox
+
+source : https://www.youtube.com/watch?v=bKFMS5C4CG0&ab_channel=NetworkChuck
