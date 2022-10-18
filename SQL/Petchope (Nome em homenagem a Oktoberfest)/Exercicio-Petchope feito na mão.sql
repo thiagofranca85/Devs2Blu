@@ -56,7 +56,7 @@ create table pet(
 commit;
 end;
 
--- Parte 5 - Criar tabela de serviços
+-- Parte 5 - Criar tabela de serviï¿½os
 begin transaction;
 create table servico(
 	 id int generated always as identity primary key
