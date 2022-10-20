@@ -11,7 +11,6 @@ poli = "="*50
 
 print(poli)
 print(f" Calculadora Salarial ".center(50,"="))
-print(poli)
 s01 = float(input("Digite seus ultimos salarios: "))
 s02 = float(input("Digite seus ultimos salarios: "))
 s03 = float(input("Digite seus ultimos salarios: "))
