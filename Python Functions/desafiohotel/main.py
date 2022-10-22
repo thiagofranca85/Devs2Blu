@@ -10,22 +10,69 @@ def menu():
 
         match opcao:
             case '1':
-                checkin()
+                print("===")
+                nome = input("Nome do Hospede: ").title()
+                while True:
+                    telefone = input("Telefone: ")
+                    if not(telefone.isnumeric()):
+                        print("Digite um telefone valido.")
+                    else:
+                        break
+                while True:
+                    varcpf = input("CPF: ")
+                    
+                    hasError = False
+                    # Limpa o cpf, retira pontos traços e tudo que não seja um número
+                    cpf = [int(char) for char in varcpf if char.isdigit()]        
+
+                    # verifica se o tamanho está correto
+                    if len(cpf) != 11:
+                        hasError = True
+
+                    if not(hasError):
+                        for i in range(9, 11):
+                            value = sum((cpf[num] * ((i+1) - num) for num in range(0, i)))
+                            digit = ((value * 10) % 11) % 10
+                            if digit != cpf[i]:
+                                hasError = True
+            
+                    if hasError:
+                        print(f"CPF inválido!")
+                    else: 
+                        dados = {}
+                        dados['nome']=nome
+                        dados['telefone']=telefone
+                        dados['cpf']=varcpf
+                        print(f"Hospede cadastrado com sucesso")
+                        salvarHospede(dados)
+                        break
             case '2':
                 listarHospede()
             case '3':
-                pass
+                if len('hospedes.txt') == 0:
+                    print(f"NÃO HÁ HÓSPEDES".center(50,"="))
+                else:
+                    print(">>> BUSCAR HOSPEDE <<<")
+                    nomeHospedeDigitado = input("Nome: ").title()
+                    procurarHospedes(nomeHospedeDigitado)
             case '4':
-                pass
+                if len('hospedes.txt') == 0:
+                    print(f"NÃO HÁ HÓSPEDES".center(50,"="))
+                else:
+                    arquivo = open('hospedes.txt', 'r')
+
+                    for number, line in enumerate(arquivo):
+                        print(number, line)
+
+                    print(">>> CHECKOUT HOSPEDE <<<")
+                    nomeHospedeDigitado = input("Nome: ").title()
+                    checkout(nomeHospedeDigitado)
             case '5':
-                pass
+                print("Programa Finalizado!")
+                break
             case _:
                 print("Digite uma Opção Válida.")
         
-        cond = str(input("Deseja voltar ao MENU?\nSim\nNao\n>: ")).lower()
-
-
-
-
+        cond = str(input("Voltar ao MENU?\nCONTINUAR digite SIM\nENTER para SAIR\n>: ")).lower()
 
 menu()

@@ -1,7 +1,6 @@
 import datetime
+import os
 from time import sleep
-
-hospedes = []
 
 def saudacao():
     horaAtual = datetime.datetime.now()
@@ -16,53 +15,38 @@ def saudacao():
 
 def salvarHospede(dados):
     with open('hospedes.txt', 'a') as hospede:
-        hospede.write(str(hospedes))
+        hospede.write(f"{str(dados)}\n")
 
 def listarHospede():
-    nomes = []
-    with open('hospedes.txt', 'r') as arquivo:
-        for name in arquivo:
-            name = name.strip()
-            nomes.append(name)
+    with open('hospedes.txt') as arquivo:
+        # print(arquivo.read())
+        for number, line in enumerate(arquivo):
+            print(number+1, line)
 
-    return nomes
+def procurarHospedes(hospedeFind):
+    index=0
+    flag=0
+    arquivo = open("hospedes.txt", "r")
 
-def checkin():
-    print("===")
-    nome = input("Nome do Hospede: ").title()
-    while True:
-        telefone = input("Telefone: ")
-        if not(telefone.isnumeric()):
-            print("Digite um telefone valido.")
-        else:
-            break
-    while True:
-        varcpf = input("CPF: ")
-        
-        hasError = False
-        # Limpa o cpf, retira pontos traços e tudo que não seja um número
-        cpf = [int(char) for char in varcpf if char.isdigit()]        
+    for line in arquivo:
+        index +=1
+        if hospedeFind == eval(line)['nome']:
+            print(line)
+            flag=1
+        if flag == 0:
+            print("Hospede não encontrado.")
 
-        # verifica se o tamanho está correto
-        if len(cpf) != 11:
-            hasError = True
 
-        if not(hasError):
-            for i in range(9, 11):
-                value = sum((cpf[num] * ((i+1) - num) for num in range(0, i)))
-                digit = ((value * 10) % 11) % 10
-                if digit != cpf[i]:
-                    hasError = True
-            
-        if hasError:
-            print(f"CPF inválido!")
-        else: 
-            dados = {
-                'nome': nome, 
-                'telefone': telefone,
-                'cpf': varcpf
-            }
-            hospedes.append(dados)
-            salvarHospede(hospedes) 
-            print(f"Hospede cadastrado com sucesso")
-            break
+def checkout(HospedeCheckout):
+    index=0
+    flag=0
+    arquivo = open('hospedes.txt', 'r')
+
+    for line in arquivo:
+        index += 1
+        if HospedeCheckout == eval(line)['nome']:
+            chave = index
+            flag = 1
+        if flag == 0:
+            print("Cliente não encontrado.")
+        arquivo.close()
