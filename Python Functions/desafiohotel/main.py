@@ -1,16 +1,17 @@
 from controller_menu import *
 
 def menu():
+    
     saudacao()
 
-    cond = 'sim'
-    while cond == 'sim':
+    while True:
 
-        opcao = input(f'\n{"*"*10} HOTEL {"*"*10}\n[1]Fazer Check-In\n[2]Relatório de Hospedes\n[3]Procurar Hospedes\n[4]Fazer Check-Out\n[5]Finalizar Atendimento\n:> ')
+        opcao = input(f'{"*"*10} HOTEL {"*"*10}\n[1]Fazer Check-In\n[2]Relatório de Hospedes\n[3]Procurar Hospedes\n[4]Fazer Check-Out\n[5]Finalizar Atendimento\n:> ')
 
         match opcao:
             case '1':
-                print("===")
+                os.system('cls')
+                print("*** Check In - Hospedes ***")
                 nome = input("Nome do Hospede: ").title()
                 while True:
                     telefone = input("Telefone: ")
@@ -43,12 +44,14 @@ def menu():
                         dados['nome']=nome
                         dados['telefone']=telefone
                         dados['cpf']=varcpf
-                        print(f"Hospede cadastrado com sucesso")
+                        print(f"\nHospede cadastrado com sucesso\n")
                         salvarHospede(dados)
+                        os.system('cls')
                         break
             case '2':
                 listarHospede()
             case '3':
+                os.system('cls')
                 if len('hospedes.txt') == 0:
                     print(f"NÃO HÁ HÓSPEDES".center(50,"="))
                 else:
@@ -56,23 +59,24 @@ def menu():
                     nomeHospedeDigitado = input("Nome: ").title()
                     procurarHospedes(nomeHospedeDigitado)
             case '4':
+                os.system('cls')
                 if len('hospedes.txt') == 0:
                     print(f"NÃO HÁ HÓSPEDES".center(50,"="))
                 else:
                     arquivo = open('hospedes.txt', 'r')
 
                     for number, line in enumerate(arquivo):
-                        print(number, line)
+                        print(number + 1, line)
 
                     print(">>> CHECKOUT HOSPEDE <<<")
-                    nomeHospedeDigitado = input("Nome: ").title()
-                    checkout(nomeHospedeDigitado)
+                    indiceCheckout = int(input("Índice - Checkout: "))
+                    checkout(indiceCheckout)
             case '5':
-                print("Programa Finalizado!")
+                os.system('cls')
+                print("\n*** Programa Finalizado ***\n")
                 break
             case _:
                 print("Digite uma Opção Válida.")
-        
-        cond = str(input("Voltar ao MENU?\nCONTINUAR digite SIM\nENTER para SAIR\n>: ")).lower()
 
+os.system('cls') 
 menu()
