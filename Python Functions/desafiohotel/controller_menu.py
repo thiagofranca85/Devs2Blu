@@ -21,17 +21,19 @@ def salvarHospede(dados):
 def listarHospede():
     os.system('cls')
     with open('hospedes.txt') as arquivo:
-        # print(arquivo.read())
-        print("\n*** Lista de Hospedes ***\n")
-        for numero, linha in enumerate(arquivo):
-            relatorio = linha.replace("{'nome':","Nome:").replace("'","").replace("telefone:","Telefone:").replace("cpf:","CPF:").replace("}","")
-            print(f"{numero + 1} -", relatorio)
+        if os.path.getsize('hospedes.txt') == 0:
+            print(f"\nNÃO HÁ HÓSPEDES\n")
+        else:
+            print("\n*** Lista de Hospedes ***\n")
+            for numero, linha in enumerate(arquivo):
+                relatorio = linha.replace("{'nome':","Nome:").replace("'","").replace("telefone:","Telefone:").replace("cpf:","CPF:").replace("}","")
+                print(f"{numero + 1} -", relatorio)
 
 
 def procurarHospedes(hospedeFind):
     os.system('cls')
     arquivo = open('hospedes.txt', 'r')
-
+    
     hospedeEncontrado = False
     for linha in arquivo:
         if hospedeFind == eval(linha)['nome']:
@@ -42,19 +44,19 @@ def procurarHospedes(hospedeFind):
     if hospedeEncontrado == False:
         print("Não existe Hospede registrado com esse nome.\n")
 
-def checkout(HospedeCheckout):
+def checkout(hospedeCheckout):
     os.system('cls')
     with open('hospedes.txt') as file:
         lines = file.readlines()
 
-    if(HospedeCheckout <= len(lines)):
-        del lines[HospedeCheckout - 1]
+    if(hospedeCheckout <= len(lines)):
+        del lines[hospedeCheckout - 1]
 
         with open('hospedes.txt', "w") as file:
             for line in lines:
                 file.write(line)
     else:
-        print(f"\nNão existe um hospede com este índice > {HospedeCheckout} <\n")
+        print(f"\nNão existe um hospede com este índice > {hospedeCheckout} <\n")
 
 
 # Guia usado pra fazer o checkout

@@ -47,19 +47,20 @@ def menu():
                         os.system('cls')
                         break
             case '2':
+                os.system('cls')
                 listarHospede()
             case '3':
                 os.system('cls')
-                if len('hospedes.txt') == 0:
-                    print(f"NÃO HÁ HÓSPEDES".center(50,"="))
+                if os.path.getsize('hospedes.txt') == 0:
+                    print(f"\nNÃO HÁ HÓSPEDES\n")
                 else:
                     print(">>> BUSCAR HOSPEDE <<<")
                     nomeHospedeDigitado = input("Nome: ").title()
                     procurarHospedes(nomeHospedeDigitado)
             case '4':
                 os.system('cls')
-                if len('hospedes.txt') == 0:
-                    print(f"NÃO HÁ HÓSPEDES".center(50,"="))
+                if os.path.getsize('hospedes.txt') == 0:
+                    print(f"\nNÃO HÁ HÓSPEDES\n")
                 else:
                     arquivo = open('hospedes.txt', 'r')
 
