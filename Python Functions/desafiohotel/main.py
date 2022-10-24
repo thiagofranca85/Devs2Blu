@@ -65,8 +65,9 @@ def menu():
                 else:
                     arquivo = open('hospedes.txt', 'r')
 
-                    for number, line in enumerate(arquivo):
-                        print(number + 1, line)
+                    for numero, linha in enumerate(arquivo):
+                        relatorio = linha.replace("{'nome':","Nome:").replace("'","").replace("telefone:","Telefone:").replace("cpf:","CPF:").replace("}","")
+                        print(f"{numero + 1} -", relatorio)
 
                     print(">>> CHECKOUT HOSPEDE <<<")
                     indiceCheckout = int(input("Índice - Checkout: "))

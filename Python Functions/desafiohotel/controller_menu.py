@@ -23,8 +23,9 @@ def listarHospede():
     with open('hospedes.txt') as arquivo:
         # print(arquivo.read())
         print("\n*** Lista de Hospedes ***\n")
-        for number, line in enumerate(arquivo):
-            print(number + 1, line)
+        for numero, linha in enumerate(arquivo):
+            relatorio = linha.replace("{'nome':","Nome:").replace("'","").replace("telefone:","Telefone:").replace("cpf:","CPF:").replace("}","")
+            print(f"{numero + 1} -", relatorio)
 
 
 def procurarHospedes(hospedeFind):
@@ -35,10 +36,11 @@ def procurarHospedes(hospedeFind):
     for linha in arquivo:
         if hospedeFind == eval(linha)['nome']:
             hospedeEncontrado = True
-            print(f"\n{linha}")
+            relatorio = linha.replace("{'nome':","Nome:").replace("'","").replace("telefone:","Telefone:").replace("cpf:","CPF:").replace("}","")
+            print(relatorio)
     
     if hospedeEncontrado == False:
-        print("\nNão existe Hospede registrado com esse nome.\n")
+        print("Não existe Hospede registrado com esse nome.\n")
 
 def checkout(HospedeCheckout):
     os.system('cls')
