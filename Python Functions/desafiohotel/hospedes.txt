@@ -1,4 +1,5 @@
 {'nome': 'Thiago', 'telefone': '654654', 'cpf': '05334405992'}
-{'nome': 'Andreia', 'telefone': '1231321', 'cpf': '05334405992'}
 {'nome': 'Larissa', 'telefone': '6567657', 'cpf': '67500048904'}
-{'nome': 'Vander', 'telefone': '65787654', 'cpf': '57539243953'}
+{'nome': 'Pedro', 'telefone': '8943543', 'cpf': '67500048904'}
+{'nome': 'Claudia', 'telefone': '6846465', 'cpf': '67500048904'}
+{'nome': 'Rogerio', 'telefone': '6876576', 'cpf': '57539243953'}

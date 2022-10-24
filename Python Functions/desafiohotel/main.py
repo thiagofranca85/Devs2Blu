@@ -2,8 +2,6 @@ from controller_menu import *
 
 def menu():
     
-    saudacao()
-
     while True:
 
         opcao = input(f'{"*"*10} HOTEL {"*"*10}\n[1]Fazer Check-In\n[2]Relatório de Hospedes\n[3]Procurar Hospedes\n[4]Fazer Check-Out\n[5]Finalizar Atendimento\n:> ')
