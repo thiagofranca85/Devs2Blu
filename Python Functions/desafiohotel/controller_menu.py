@@ -56,7 +56,7 @@ def checkout(hospedeCheckout):
             for line in lines:
                 file.write(line)
     else:
-        print(f"\nNão existe um hospede com este índice > {hospedeCheckout} <\n")
+        print(f"Não existe um hospede com este índice > {hospedeCheckout} <\n")
 
 
 # Guia usado pra fazer o checkout
@@ -81,3 +81,12 @@ def checkout(hospedeCheckout):
 #     print(f"Atualmente temos {len(lines)} hospedados.")
 
 # delete_line(delete_filename, delete_line_number)
+
+
+# Transformar o txt em uma lista
+# lista = []
+# with open('hospedes.txt', 'r') as arq:
+#     for n in arq:
+#         lista.append(eval(n))
+
+# print(lista)

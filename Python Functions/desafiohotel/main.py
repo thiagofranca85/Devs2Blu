@@ -73,7 +73,7 @@ def menu():
                     checkout(indiceCheckout)
             case '5':
                 os.system('cls')
-                print("\n*** Programa Finalizado ***\n")
+                print("*** Programa Finalizado ***\n")
                 break
             case _:
                 print("Digite uma Opção Válida.")
