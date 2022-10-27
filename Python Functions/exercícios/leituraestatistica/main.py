@@ -4,40 +4,56 @@
 # B) A média de idade do grupo; 
 # C) Uma lista com todas as mulheres; 
 # D) Uma lista com todas as pessoas com idade acima da média.
-from controller import *
 
-def menu():    
+def menu(): 
+    dados = {}
+    pessoas = []
+    acumulaIdade = 0   
     while True:
-        opcao = input("[1]Cadastrar\n[2]Listar Dados\n[3]Fechar Programa\n:> ")
-        match opcao:
-            case '1':
-                nome = input("Nome: ")
-                while True:
-                    sexo = input("Sexo(m ou f ou nb): ")
-                    match sexo:
-                        case 'm':
-                            sexo='m'
-                            break
-                        case 'f':
-                            sexo='f'
-                            break
-                        case 'nb':
-                            sexo='nb'
-                            break
-                        case _:
-                            print("Digite sua orientação sexual corretamente.")                              
-                while True:                                    
-                    idade = input("Idade: ")
-                    if not(idade.isnumeric()):
-                        print("Digite uma idade válida.")
-                    else:
-                        break
-                cadastro(nome,sexo,idade)                
-            case '2':
-                listarEstatistica()
-            case '3':
-                print("Falowss")
-                break
-            case _:
-                print("Digite a opção certa ai jovem.")
+        dados['nome']=input("Nome: ").strip().capitalize()
+        dados['sexo']=input("Sexo [M/F]: ").strip().upper()
+    
+        while dados['sexo'] not in ('M', 'F'):
+            print("Digite a alternativa correta.")
+            dados['sexo']=input("Digite [M/F]: ").strip().upper()
+        
+        dados['idade']=int(input("Idade: "))
+        acumulaIdade += dados['idade']
+
+        pessoas.append(dados.copy())
+
+        print('-'*30)
+        continuar = input("Deseja continuar? [S/N]: ").strip().upper()
+
+        while continuar not in ('S', 'N'):
+            print("Informe a opção correta.")
+            continuar = input("Deseja continuar? [S/N]: ").strip().upper()
+
+        if continuar == 'N':
+            break
+
+    print(f'{"Estatistica:":^30}\n' + '-'*30)
+    print(f"Há {len(pessoas)} pessoa(s) cadastrada(s).")     
+
+    idadeMedia = acumulaIdade / len(pessoas)
+    print(f"A idade media é {idadeMedia:.1f} anos.")
+
+    print("Mulheres Cadastradas")
+    for cadastro in pessoas:
+        if cadastro['sexo']== 'F':
+            print(f"\t--> {cadastro['nome']}")
+
+    print("\nPessoas com idade acima da media")
+    for cadastro in pessoas:
+        if cadastro['idade'] >= idadeMedia:
+            for chave, info in cadastro.items():
+                print(f"\t{chave} -> {info}")
+            print('-'*30)
+
 menu()
+
+
+    
+
+
+
