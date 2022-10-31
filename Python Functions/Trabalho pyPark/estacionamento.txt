@@ -1,0 +1,2 @@
+[{'placa': 'AASD1234', 'modelo': 'FORD FIESTA', 'cor': 'PRATA', 'entrada': datetime.datetime(2022, 10, 31, 15, 0)}]
+[{'placa': 'QWEQ1234', 'modelo': 'LAMBORGUINI AVENTADOR', 'cor': 'LARANJA', 'entrada': datetime.datetime(2022, 10, 31, 18, 30)}]
