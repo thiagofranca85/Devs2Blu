@@ -15,22 +15,7 @@ def disponivel():
         print("Não há vagas disponíveis no momento!")
     print(f"Existem vagas disponíveis")
     
-def entrada():
-    os.system('cls')
-    dados = dict()
-    dados['placa'] = str(input("Placa do Veículo: ")).upper().strip()
-    dados['modelo'] = str(input("Marca/Modelo: ")).upper().strip()
-    dados['cor'] = str(input("Cor do veículo: ")).upper().strip()
-    # Input de Hora e Minutos pra Hora de Entrada
-    EntradaHora = int(input("Digite a hora de entrada: "))
-    EntradaMinuto = int(input("E os minutos: "))
-    # Salva o Horário de Entrada em Horas e Minutos
-    horaEntrada = datetime.combine(date.today(), time(EntradaHora, EntradaMinuto)) 
-    dados['entrada'] = horaEntrada
-    carro = list()
-    carro.append(dados.copy())
-    print(carro)
-    
+def entrada(carro):
     with open('estacionamento.txt', 'a') as arquivo:
         arquivo.write(str(carro)+"\n")
 
@@ -44,24 +29,56 @@ def saida(placa):
     placaEncontrada = False
     # Verifica se existe a placa no estacionamento e mostra os dados do veiculo
     for linha in arquivo:
-        if placa == eval(linha)['placa']:
-            # Aqui salvar o valor de entrada "datetime" como objeto pra poder fazer o calculo com a horaSaidaAtual no while seguinte.
-            # >> horaEntrada = datetime.eval(linha)['entrada']
+        aux = eval(linha)
+
+        if placa == aux['placa']:
+            entradaHora = aux['entradaHora']
+            entradaMinuto = aux['entradaMinuto']          
             placaEncontrada = True
             relatorio = linha # Customizar informações (Essa linha adiciona é pra customizar o TXT depois com o Nested Replace)
             print(relatorio)
-
+        
         # Se não encontrar a placa mostra a mensagem abaixo
         if placaEncontrada == False:
             print("PLACA NÃO ENCONTRADA.")
 
     while True:
-        opcao = input("[1] Efetuar Pagamento\n[2] Voltar ao Menu")
-        horaSaidaAtual = datetime.combine(date.today(), time(horaAtual.hour, horaAtual.minute))
+        # Hora de entrada vinda do txt pelas chaves acima
+        horaEntrada = datetime.combine(date.today(), time(entradaHora, entradaMinuto))
+        # Salva o Horário de Saída em Horas e Minutos usando o horaAtual.hour e horaAtual.minute como parametros.
+        horaSaidaAtual = datetime.combine(date.today(), time(horaAtual.hour, horaAtual.minute)) 
+      
+        opcao = input("[1] Efetuar Pagamento\n[2] Voltar ao Menu\n>> ")
 
         match opcao:
             case '1':
-                print("Opção de saída")
+                horaSaida = horaSaidaAtual - horaEntrada
+                # Transforma as horas em um numero float através dos segundos pra calcular o valor a pagar
+                calcHora = (horaSaida.seconds/60)/60 
+
+                valor = 0
+                if calcHora < 1:
+                    valor = 5
+                    print(f"O carro ficou estacionado por {horaSaida.seconds/60} minutos.")
+                elif calcHora < 2:
+                    valor = 10
+                    print(f"O carro ficou estacionado por {(horaSaida.seconds/60)/60:.1f} hora(s).")
+                elif calcHora > 2:
+                    valor = ((round(calcHora) * 2) - 4) + 10
+                    print(f"O carro ficou estacionado por {(horaSaida.seconds/60)/60:.1f} horas.")
+                
+                print(f"Valor R${valor:.2f}")
+                # Caixa (valor)
+                
+                with open('estacionamento.txt') as file:
+                    lines = file.readlines()
+
+                if(placa <= len(lines)):
+                    del lines[placa]
+
+                    with open('estacionamento.txt', "w") as file:
+                        for line in lines:
+                            file.write(line)
             case '2':
                 break
             case _:
