@@ -1,1 +1,3 @@
 {'placa': 'AASD1234', 'modelo': 'FORD KA', 'cor': 'VERMELHO', 'entradaHora': 15, 'entradaMinuto': 25}
+{'placa': 'ZXCC1122', 'modelo': 'VW FUSCA', 'cor': 'PRATA', 'entradaHora': 13, 'entradaMinuto': 45}
+{'placa': 'FFGG1234', 'modelo': 'FIORINO FIAT', 'cor': 'BRANCA', 'entradaHora': 9, 'entradaMinuto': 15}

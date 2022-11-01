@@ -58,7 +58,6 @@ def checkout(hospedeCheckout):
     else:
         print(f"Não existe um hospede com este índice > {hospedeCheckout} <\n")
 
-
 # Guia usado pra fazer o checkout
 # def delete_line(filename, line_number):
 
