@@ -3,3 +3,5 @@
 {'nome': 'Pedro', 'telefone': '687687', 'cpf': '57539243953'}
 {'nome': 'Gisele', 'telefone': '645465465', 'cpf': '03282331967'}
 {'nome': 'Andreia', 'telefone': '846465465', 'cpf': '03282331967'}
+{'nome': 'Thiago', 'telefone': '24545546', 'cpf': '05334405992'}
+{'nome': 'Gisele', 'telefone': '654654', 'cpf': '05334405992'}

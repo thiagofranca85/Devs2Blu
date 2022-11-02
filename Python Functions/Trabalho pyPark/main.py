@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 from controller import entrada, tabelaPrecos, saida
 from time import sleep
+=======
+from controller import disponivel, entrada, tabelaPrecos, saida
+>>>>>>> 613df77bf5630d784151475a8de98ccb9d30ae46
 import os
 
 poli = "*" *28
@@ -12,6 +16,7 @@ def menu():
         escolha = input("Escolha a Opção Desejada:\n 1 => Entrada de Veículo\n 2 => Tabela de Preços\n 3 => Saída de Veículo\n 4 => Encerrar Programa\n>> ") 
         
         match escolha:
+<<<<<<< HEAD
             case "1":
                 os.system('cls')
                 with open('estacionamento.txt') as file:
@@ -34,6 +39,18 @@ def menu():
                     print("Não há vagas disponíveis no momento!\n")
             case "2":
                 os.system('cls')
+=======
+            case "1":                
+                # Inserção de dados dos carros.
+                dados = {}
+                dados['placa'] = str(input("Placa do Veículo: ")).upper().strip()
+                dados['modelo'] = str(input("Marca/Modelo: ")).upper().strip()
+                dados['cor'] = str(input("Cor do veículo: ")).upper().strip()
+                dados['entradaHora'] = int(input("Digite a hora de entrada: "))
+                dados['entradaMinuto'] = int(input("E os minutos: "))
+                entrada(dados)
+            case "2":
+>>>>>>> 613df77bf5630d784151475a8de98ccb9d30ae46
                 # Tabela de preços basica exibida com prints.
                 tabelaPrecos()
             case "3":
@@ -42,6 +59,10 @@ def menu():
                 placa = input("Digite a placa Ex[ABCD1234]: ").strip().upper()
                 saida(placa)
             case "4":
+<<<<<<< HEAD
+=======
+                # Encerra o Programa
+>>>>>>> 613df77bf5630d784151475a8de98ccb9d30ae46
                 os.system('cls')
                 # Encerra o Programa
                 print("** Programa Encerrado **\n")
