@@ -1,11 +1,8 @@
 {'placa': 'AASD1234', 'modelo': 'FORD KA', 'cor': 'VERMELHO', 'entradaHora': 15, 'entradaMinuto': 25}
 {'placa': 'ZXCC1122', 'modelo': 'VW FUSCA', 'cor': 'PRATA', 'entradaHora': 13, 'entradaMinuto': 45}
 {'placa': 'FFGG1234', 'modelo': 'FIORINO FIAT', 'cor': 'BRANCA', 'entradaHora': 9, 'entradaMinuto': 15}
-<<<<<<< HEAD
 {'placa': 'LOS2259', 'modelo': 'RENAULT CLIO', 'cor': 'PRATA', 'entradaHora': 17, 'entradaMinuto': 45}
 {'placa': 'MMT5546', 'modelo': 'CHEVROLET ONIX', 'cor': 'AZUL', 'entradaHora': 12, 'entradaMinuto': 33}
 {'placa': 'QEWQ5456', 'modelo': 'FIAT UNO', 'cor': 'BRANCO', 'entradaHora': 16, 'entradaMinuto': 23}
 {'placa': 'MMF0515', 'modelo': 'FORD FIESTA', 'cor': 'PRATA', 'entradaHora': 18, 'entradaMinuto': 25}
 {'placa': 'VCXX7898', 'modelo': 'VW NEW BEETLE', 'cor': 'BRANCA', 'entradaHora': 14, 'entradaMinuto': 45}
-=======
->>>>>>> 613df77bf5630d784151475a8de98ccb9d30ae46
