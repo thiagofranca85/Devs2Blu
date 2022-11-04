@@ -1,3 +1,6 @@
+# Este arquivo foi criado SEPARADO apenas pra entender como fazer o calculo de horas e converter 
+# o resultado das horas em um numero float pra calcular o valor
+# As IDEIAS desse arquivo foram usadas no controller pra adaptar os calculos dentro do pyPark
 from datetime import date, datetime, time
 
 # Pega Data e Horário Atual do Sistema
