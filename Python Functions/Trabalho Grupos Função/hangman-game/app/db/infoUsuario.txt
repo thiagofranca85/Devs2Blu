@@ -1,0 +1,7 @@
+{'nome': 'Joao', 'qPartidas': 10, 'vitorias': 1, 'derrotas': 9, 'pVitorias': 10.0, 'pDerrotas': 90.0}
+{'nome': 'Ana', 'qPartidas': 6, 'vitorias': 2, 'derrotas': 4, 'pVitorias': 33.3, 'pDerrotas': 66.7}
+{'nome': 'Marcos', 'qPartidas': 21, 'vitorias': 13, 'derrotas': 8, 'pVitorias': 61.9, 'pDerrotas': 38.1}
+{'nome': 'Eduarda', 'qPartidas': 1, 'vitorias': 0, 'derrotas': 1, 'pVitorias': 0, 'pDerrotas': 100}
+{'nome': 'Haiko', 'qPartidas': 3, 'vitorias': 1, 'derrotas': 2, 'pVitorias': 33.3, 'pDerrotas': 66.7}
+{'nome': 'Joao Victor', 'qPartidas': 1, 'vitorias': 0, 'derrotas': 1, 'pVitorias': 0, 'pDerrotas': 100}
+{'nome': 'Alejandro', 'qPartidas': 3, 'vitorias': 1, 'derrotas': 2, 'pVitorias': 33.3, 'pDerrotas': 66.7}

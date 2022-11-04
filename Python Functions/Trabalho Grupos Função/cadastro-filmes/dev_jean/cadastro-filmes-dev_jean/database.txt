@@ -1,0 +1,5 @@
+{'tipo': 'Filme', 'titulo': 'Nome', 'genero': 'Acao', 'duracao': '60', 'assistido': 0}
+{'tipo': 'Tipo', 'titulo': '007', 'genero': 'Comedia', 'duracao': '60', 'assistido': '1'}
+{'tipo': 'filme', 'titulo': 'Ok', 'genero':'neutro', 'duracao':'40', 'assistido':'0'}
+{'tipo': 'Filme', 'titulo': 'Titulo do filme', 'genero':'Aventura', 'duracao':'90', 'assistido':'0'}
+{'tipo': 'Filme', 'titulo': 'StarWars', 'genero':'Aventura', 'duracao':'99', 'assistido':'1'}

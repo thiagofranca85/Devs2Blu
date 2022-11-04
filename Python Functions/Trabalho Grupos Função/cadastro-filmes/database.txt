@@ -1,0 +1,5 @@
+{'tipo': 'filme', 'titulo': 'Nome', 'genero': 'genero legal', 'duracao': 120, 'assistido': 1}
+{'tipo': asd, 'titulo': 'asd', 'genero':'asd', 'duracao':'asd'}
+{'tipo': 2, 'titulo': '5664', 'genero':'3213', 'duracao':'666'}
+{'tipo': sd, 'titulo': 'ds', 'genero':'sd', 'duracao':'sd'}
+{'tipo': dss, 'titulo': 'sd', 'genero':'sd', 'duracao':'sd'}

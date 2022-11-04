@@ -1,0 +1,5 @@
+{'Nome': 'Pedro da Silva', 'CPF': '098.098.657-88', 'Telefone': '47-988675475', 'Datanasc': '12/10/2000'}
+{'Filme': 'Harry Potter e o Prisioneiro de Azkaban'}
+{'Poltrona': 'A1'}
+{'Pipoca': 1, 'Refrigerante': 2, 'Chocolate': 2}
+{'Pagamento': 'Cartão'}

@@ -1,0 +1,7 @@
+def formula_triangulo(base, altura):
+    res = (base*altura)/2
+    return res
+
+triangulo1 = formula_triangulo(10,12)
+
+print(triangulo1)
