@@ -3,10 +3,10 @@ from controller import create, read, update, delete
 
 def menu():
 
-    # conta = Conta()
-    # conta.titular = 'Thiago'
-    # conta.numero = 123
-    # conta.saldo = 50000
+    conta = Conta()
+    conta.titular = 'Thiago'
+    conta.numero = 123
+    conta.saldo = 50000
     # create(conta)
 
     # lista_contas = read()
@@ -14,7 +14,10 @@ def menu():
     # for c in lista_contas:
     #     print(c)
 
-    delete(123)
+    update(conta)
+
+    # delete(123)
+
     
 
 menu()
