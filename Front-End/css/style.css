@@ -1,0 +1,26 @@
+body {
+    background: rgb(208, 107, 68);
+}
+
+td, tr {
+    border: 1px solid;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: aquamarine;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: darkkhaki;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    text-shadow: 2px 2px 2px yellow;
+    letter-spacing: 5px;
+    font-variant: small-caps;
+}
+a {
+  outline: none;
+  text-decoration: none;  
+  padding: 2px 1px 0;
+  color: #7de439;
+}
