@@ -22,10 +22,11 @@ a.nav-link {
   color: #007bff !important;
   font-weight: bold !important;
   text-transform: uppercase !important;
+  margin-top: 10px;
 }
 
 footer {
-  margin-top: 20px;
+  margin-top: 25px;
   padding-top: 5px;
   padding-bottom: 1px;
   color: #007bff;
