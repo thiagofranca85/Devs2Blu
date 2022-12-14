@@ -1,0 +1,35 @@
+body {
+  background-color: cadetblue !important;
+}
+
+div {
+  margin-top: 10px;
+  color: antiquewhite;
+}
+
+.nav {
+  justify-content: center;
+  background-color: bisque;
+}
+
+a.nav-link {
+  font-weight: bold;
+}
+
+.btn-success {
+  background-color: antiquewhite !important;
+  border-color: antiquewhite !important;
+  color: #007bff !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  margin-top: 10px;
+}
+
+footer {
+  margin-top: 25px;
+  padding-top: 5px;
+  padding-bottom: 1px;
+  color: #007bff;
+  text-align: center;
+  background-color: bisque;
+}
