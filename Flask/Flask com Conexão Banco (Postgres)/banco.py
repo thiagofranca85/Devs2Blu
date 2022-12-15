@@ -3,7 +3,8 @@ import psycopg2
 print("Testando...")
 
 try:
-    conn = psycopg2.connect(host = "localhost",
+    conn = psycopg2.connect(
+    host = "localhost",
     port ="5435",
     database = "postgres", 
     user="thiagoaf", password = "123456")

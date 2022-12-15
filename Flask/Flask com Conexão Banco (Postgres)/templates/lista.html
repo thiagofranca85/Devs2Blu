@@ -14,6 +14,11 @@
                         <td>{{pessoa.nome}}</td>
                         <td>{{pessoa.idade}}</td>
                         <td>{{pessoa.altura}}</td>
+
+                        <td>
+                            <a href="{{ url_for('editar', id=pessoa.id ) }}">Editar</a>
+                        </td>
+
                     </tr>
                 {% endfor %}
             </tbody>
