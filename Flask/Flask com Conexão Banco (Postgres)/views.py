@@ -4,24 +4,19 @@ from models import Pessoas, Usuarios
 
 @app.route('/')
 def index():
+
     lista = Pessoas.query.order_by(Pessoas.id)
     #render template acessa nosso html, variavel titulo recebendo valor e sendo acessada via html.
-    return render_template("lista.html", pessoas = lista)
-
-
+    return render_template("lista.html", titulo = 'Lista de Pessoas', pessoas = lista)
 
 #return redirect('/login')
 @app.route('/novo')
 def novo():
 
-    if 'usuario_logado' not in session or session['usuario_logado'] is None:
-        
+    if 'usuario_logado' not in session or session['usuario_logado'] is None:        
         #recurso querystring
         return redirect(url_for('login', proximo= url_for('novo')))
-
     return render_template('novo.html', titulo='Nova Pessoa')
-
-
 
 
 @app.route('/criar', methods=['POST',])
@@ -30,8 +25,8 @@ def criar():
     idade = request.form['idade']
     altura = request.form['altura']
 
-    #variavel nova recebendo classe pessoa e filtrando pelo nome
-    pessoa = Pessoas(nome, idade, altura)
+    #variavel nova recebendo classe jogo e filtrando pelo nome
+    pessoa = Pessoas.query.filter_by(nome=nome).first()
 
     #if condicional recebendo a variavel caso exista jogos cadastrados
     if pessoa:
@@ -45,7 +40,7 @@ def criar():
     # acessando variavel db e o recurso session e comintado dados no banco
     db.session.commit()
     # redirecionando para a lista de pessoas
-    return redirect(url_for('lista'))
+    return redirect(url_for('index'))
 
 @app.route('/editar/<int:id>')
 def editar(id):
@@ -57,7 +52,26 @@ def editar(id):
 
 @app.route('/atualizar', methods=['POST',])
 def atualizar():
-    pass
+    
+    pessoa = Pessoas.query.filter_by(id=request.form['id']).first()
+    
+    pessoa.nome = request.form['nome']
+    pessoa.idade = request.form['idade']
+    pessoa.altura = request.form['altura']
+
+    db.session.add(pessoa)
+    db.session.commit()
+    return redirect(url_for('index'))
+
+@app.route('/deletar/<int:id>')
+def deletar(id):
+    if 'usuario_logado' not in session or session['usuario_logado'] is None:
+        return redirect(url_for('login'))
+
+    Pessoas.query.filter_by(id=id).delete()
+    db.session.commit()
+    flash('Pessoa deletada com sucesso.')
+    return redirect(url_for('index'))
 
 @app.route('/logout')
 def logout():
