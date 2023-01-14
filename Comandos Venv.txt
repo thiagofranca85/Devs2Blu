@@ -1,0 +1,29 @@
+* Para criar o AmbienteVirtual(Virtualenv)
+python3 -m venv ./venv 
+python -m venv ./venv
+Esse comando cria a VENV com a versao do Python instalado no sistema.
+
+* Esse comando ativa a venv do projeto.
+venv/scripts/activate
+.venv/scripts/activate
+Vai aparecer um "(venv)" ou o nome da venv customizado no terminal do projeto.
+
+* Para instalar o Django
+pip install Django
+
+* Para verificar as dependencias incluídas no projeto
+pip freeze
+
+* Lista de comandos do Django
+django-admin help
+
+* Iniciando o Projeto
+django-admin startproject nomedoprojeto .
+
+* Inicializar o servidor Django
+python manage.py runserver
+
+* Criando um APP dentro do projeto Django
+python manage.py startapp nomedoapp
+
+
