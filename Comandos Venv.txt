@@ -26,4 +26,31 @@ python manage.py runserver
 * Criando um APP dentro do projeto Django
 python manage.py startapp nomedoapp
 
+----
+
+* O comando makemigrations cria novas migrações com base nas 
+*alterações detectadas nos modelos.
+python manage.py makemigrations
+
+* O comando abaixo aplica as migrações no versionamento do código
+python manage.py migrate
+
+* Criar SuperUser Django
+python manage.py createsuperuser
+
+** Caso de erro no VSCODE usar esses passos.
+* Instalar o pylint-django
+pip install pylint-django
+-- Continuando --
+Cria uma pasta na raiz do projeto chamada .vscode
+Dentro crie um arquivo chamado Settings.json
+* Dentro desse arquivo Settings colar o seguinte código.
+{
+    "python.pythonPath": "venv/bin/python",
+    "python.linting.pylintArgs": [
+        "--load-plugins=pylint_django"
+    ],
+}
+
+
 
