@@ -2,6 +2,11 @@
 python3 -m venv ./venv 
 python -m venv ./venv
 Esse comando cria a VENV com a versao do Python instalado no sistema.
+** Outra alternativa caso dê algum erro.
+* Cria venv
+python -m venv venv    
+* Abre a venv no terminal VSCODE ou Powershellpy
+.\venv\Scripts\Activate.ps1
 
 * Esse comando ativa a venv do projeto.
 venv/scripts/activate
