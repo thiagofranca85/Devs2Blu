@@ -17,9 +17,12 @@ from .models import Alunos
 #     return render(request, 'index.html', dados)
 
 # Código funcionando buscando do Banco de Dados
+
 def index(request):
     alunos = Alunos.objects.all()    
-    dados = {'alunos': alunos}
+    dados = {
+        'alunos': alunos
+        }
     return render(request, 'index.html', dados)
 
 def aluno(request):
