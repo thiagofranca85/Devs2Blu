@@ -13,6 +13,7 @@ Alterar 2 Arquivos do sistema (Ubuntu) usando algum editor de texto, por exemplo
 Por exemplo, pra abrir o arquivo voce pode usar este comando, usando o VIM como exemplo.
 
 ** 1º Arquivo
+** Dica Após abrir os arquivos com o VIM aperte "i" para habilitar a edição dos arquivos. **
 
 "sudo vim /etc/sudoers.d" (Sem as aspas)
 Voce vai abrir o arquivo sudoers.d e nele precisa adicionar o seguinte comando:
