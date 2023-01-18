@@ -65,31 +65,32 @@
                 <div class="row">
                     <div class="col-12 col-md-8">
                         <div class="receipe-headline my-5">
-                            <span>01 de janeiro, 2023</span>
-                            <h2>Nome do Aluno</h2>
+                            <span>{{ aluno.data_aluno }}</span>
+                            <h2>{{ aluno.nome_aluno }}</h2>
                             <div class="receipe-duration">
-                                <h6>habilidades: Backend</h6>
-                                <h6>comportamento: comunicativo</h6>
-                                <h6>workspace: Python</h6>
+                                <h6>habilidades: {{ aluno.habilidades }}</h6>
+                                <h6>comportamento: {{ aluno.comportamento }}</h6>
+                                <h6>workspace: {{ aluno.workspace }}</h6>
                                 <h6>Por: Pessoa</h6>
                             </div>
                         </div>
                     </div>
 
-                <div class="row">
-                    <div class="col-12 col-lg-8">
-                        <!-- Single Preparation Step -->
-                        <div class="single-preparation-step d-flex">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+                    <div class="row">
+                        <div class="col-12 col-lg-8">
+                            <h4>Descrição Pessoal</h4>
+                            <!-- Single Preparation Step -->
+                            <div class="single-preparation-step d-flex">
+                                <p>{{ aluno.descricao_pessoal }}</p>
+                            </div>
                         </div>
-                    </div>
 
                     <!-- Ingredientes -->
                     <div class="col-12 col-lg-4">
                         <div class="ingredients">
                             <h4>Descrição Profissional</h4>
                             <div class="ingredients">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+                                <p>{{ aluno.descricao_profissional }}</p>
                             </p>
                             </div>
                         </div>
