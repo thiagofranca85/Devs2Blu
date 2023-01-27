@@ -1,0 +1,18 @@
+* Instalar fastapi e uvicorn
+pip install fastapi uvicorn
+* Salvar arquivo com todas dependencias do projeto
+pip freeze > requirements.txt
+* Instalar dependencias do arquivo requirements.txt
+pip install -r requirements.txt
+
+
+** Iniciar projeto FastAPI
+uvicorn main:app
+
+* Recarregar projeto via terminal
+uvicorn main:app -reload
+
+** Acessar pastas do FastAPI
+* Apos o url padrao usar:
+/docs 
+/redoc
