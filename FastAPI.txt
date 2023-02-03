@@ -10,7 +10,7 @@ pip install -r requirements.txt
 uvicorn main:app
 
 * Recarregar projeto via terminal
-uvicorn main:app -reload
+uvicorn main:app --reload
 
 ** Acessar pastas do FastAPI
 * Apos o url padrao usar:
