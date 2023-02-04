@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi import HTTPException, status
+from models import Aluno, alunos
 from fastapi import Response, Path, Query, Header, Depends
 from typing import Optional, Dict, List, Any
-from models import Aluno, alunos
 from time import sleep
 
 app = FastAPI(
@@ -60,7 +60,7 @@ async def get_alunos():
         response_description='Consulta aluno pelo ID e apartir da 2a consulta salva o "Cache"'
         # response_model=List[Aluno]
         )
-async def mostra_aluno_consultado(aluno_id: int = Path(default=None, title='ID Aluno', description='eve ser entre 1 ou 2', gt=0, lt=3), db :Any =Depends(db)):
+async def mostra_aluno_consultado(aluno_id: int = Path(default=None, title='ID Aluno', description='Deve ser entre 1 ou 2', gt=0, lt=7), db :Any =Depends(db)):
     try:
         # aluno = alunos[aluno_id]
         # print(alunos)
