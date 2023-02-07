@@ -1,7 +1,7 @@
 from core.configs import settings
 from sqlalchemy import Column, Integer, String
 
-class AlunoModel(settings.DB_BaseModel):
+class AlunoModel(settings.DBBaseModel):
     __tablename__ = 'alunos'
 
     id: int = Column(Integer, primary_key=True, autoincrement=True)
