@@ -9,7 +9,7 @@ pip install -r requirements.txt
 ** Iniciar projeto FastAPI
 uvicorn main:app
 
-* Recarregar projeto via terminal
+* Iniciar o projeto e recarrega automaticamente após um SAVE
 uvicorn main:app --reload
 
 ** Acessar pastas do FastAPI
