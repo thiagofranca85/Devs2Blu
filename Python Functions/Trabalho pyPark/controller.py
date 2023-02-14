@@ -1,12 +1,6 @@
 from datetime import datetime, date, time
 import os
 
-<<<<<<< HEAD
-=======
-# Pega Data e Horário Atual do Sistema
-horaAtual = datetime.now()
-  
->>>>>>> df410135f6885e0766f0eeba0689929ab7d23815
     # Salva os dados em um dicionario dentro do arquivo txt.
 def entrada(carro):
     with open('estacionamento.txt', 'a') as arquivo:
