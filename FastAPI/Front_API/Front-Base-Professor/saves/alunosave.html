@@ -4,10 +4,10 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Novo Professor</title>
+   <title>Novo Aluno</title>
 </head>
 <body>
-   <form id="form-professores" method="post" onsubmit="save()">
+   <form id="form-alunos" method="post" onsubmit="save()">
 
 
    <input type="text" name="id" id="id" readonly placeholder="Id">
@@ -23,13 +23,13 @@
 
    <h5 id="mensagem"></h5>
    
-   <a href="professores.html">Voltar para lista</a>
+   <a href="/listas/alunos.html">Voltar para lista</a>
 
 
-   <script src="scriptprof.js"></script>
+   <script src="/js/scriptaluno.js"></script>
 
    <script>
-       document.getElementById('form-professores').addEventListener('submit', e => {
+       document.getElementById('form-alunos').addEventListener('submit', e => {
            e.preventDefault()
        })
        // pegar parametros url no caso de editar
@@ -37,7 +37,7 @@
        const urlParams = new URLSearchParams(queryString);
        const id = urlParams.get('id');
        if(id != null){
-           load_professor(id);
+           load_aluno(id);
        }
    </script>
    

@@ -14,12 +14,13 @@
         <button onclick="search()">Buscar</button>
     </div>
 
-    <table class="table table-striped">
+    <table class="table table-dark table-striped">
         <thead>
             <th>Id</th>
             <th>Nome</th>
             <th>Idade</th>
             <th>E-mail</th>
+            <th>Ações</th>
         </thead>
         <tbody id="tbody-alunos">
 
@@ -27,10 +28,11 @@
         </tbody>
     </table>
 
-    <a href="alunos.html" style="margin: 50px">Carregar Todos</a>
-    <a href="index.html" style="margin: 50px">Início</a>
+        <a href="/saves/alunosave.html">Novo Aluno</a>
+        <a href="/listas/alunos.html" style="margin: 50px">Carregar Todos</a>
+        <a href="/index.html" style="margin: 50px">Início</a>
     
-    <script src="scriptaluno.js"></script>
+    <script src="/js/scriptaluno.js"></script>
 
     <script>
         get_all()

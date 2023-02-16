@@ -24,8 +24,8 @@ function get_all(){
             <td>${usuario.idade}</td>
             <td>${usuario.email}</td>
             <td>
-                <a href="usuariosave.html?id=${usuario.id}">editar</a> |
-                <button onclick='remove(${usuario.id})'>deletar</button>
+                <a href="/saves/usuariosave.html?id=${usuario.id}">EDITAR</a> |
+                <button onclick='remove(${usuario.id})'>DELETAR</button>
             </td>
         </tr>
         `;
@@ -62,8 +62,8 @@ function search(){
         <td>${usuario.idade}</td>
         <td>${usuario.email}</td>
         <td>
-            <a href="usuariosave.html?id=${usuario.id}">editar</a> |
-            <button onclick='remove(${usuario.id})'>deletar</button>
+            <a href="/saves/usuariosave.html?id=${usuario.id}">EDITAR</a> |
+            <button onclick='remove(${usuario.id})'>DELETAR</button>
         </td>
       </tr>`;
     });
