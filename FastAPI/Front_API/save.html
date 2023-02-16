@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Novo Aluno</title>
+</head>
+<body>
+   <form id="form-alunos" method="post" onsubmit="save()">
+
+
+   <input type="text" name="id" id="id" readonly placeholder="Id">
+   <input type="text" name="nome" id="nome" placeholder="Nome">
+   <input type="text" name="email" id="email" placeholder="email">
+
+
+   <input type="submit" value="salvar">
+
+
+   </form>
+
+   <h5 id="mensagem"></h5>
+   
+   <a href="index.html">Voltar para lista</a>
+
+
+   <script src="script.js"></script>
+
+   <script>
+       document.getElementById('form-alunos').addEventListener('submit', e => {
+           e.preventDefault()
+       })
+       // pegar parametros url no caso de editar
+       const queryString = window.location.search;
+       const urlParams = new URLSearchParams(queryString);
+       const id = urlParams.get('id');
+       if(id != null){
+           load_aluno(id);
+       }
+   </script>
+   
+</body>
+</html>

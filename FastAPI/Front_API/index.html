@@ -4,12 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alunos</title>
+    <title>Relatório de Cadastros</title>
 </head>
 <body>
     <div>
-        <input type="text" name="id_busca" id="id_busca" placeholder="Digite o ID do aluno">
-        <button onclick="get_aluno()">Buscar</button>
+        <!-- <button onclick="get_list(event); return false;" data-name="aluno">Alunos</button> -->
+        <button onclick="get_alunos()">Alunos</button>
+        <button onclick="get_usuarios()">Usuarios</button>
+        <button onclick="get_professores()">Professores</button>
+    </div>
+    <div>
+        <!-- <input type="text" name="id_busca" id="id_busca" placeholder="Digite o ID do aluno">
+        <button onclick="get_aluno()">Buscar</button> -->
+        <label for="lista">Lista</label>
+        <select name="lista_busca" id="lista_busca">
+            <option id="lista_busca" value="alunos">Aluno</option>
+            <option id="lista_busca" value="usuarios">Usuario</option>
+            <option id="lista_busca" value="professores">Professor</option>
+        </select>
+        <input type="number" name="id_busca" id="id_busca" placeholder="Selecione o ID">
+        <button onclick="get_by_id()">Buscar</button>
     </div>
     <table>
         <thead>
@@ -18,11 +32,12 @@
             <th>Idade</th>
             <th>Email</th>
         </thead>
-        <tbody id="tbody-alunos">
+        <tbody id="tbody-lista">
             
         </tbody>
     </table>
-    <a href="index.html">Carregar Todos</a>
-    <script src="get.js"></script>
+
+    <a href="index.html">Início</a>
+    <script src="script.js"></script>
 </body>
 </html>
