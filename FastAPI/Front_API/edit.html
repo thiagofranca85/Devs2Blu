@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Editar Dados</title>
+</head>
+<body>
+    <h1>Editar Dados</h1>
+    <form onsubmit="save(event)">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <br>
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" name="idade" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <input type="submit" value="Salvar">
+    </form>
+
+    <script>
+        // Fetch the item data and pre-fill the form fields
+        const id = new URLSearchParams(window.location.search).get('id');
+        fetch(`http://127.0.0.1:8000/api/v1/alunos/${id}`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('nome').value = data.nome;
+            document.getElementById('idade').value = data.idade;
+            document.getElementById('email').value = data.email;
+        });
+
+        function save(event) {
+            event.preventDefault();
+            console.log("Clicou no save");
+
+            const id = new URLSearchParams(window.location.search).get('id');
+            console.log(`Update item com o ID ${id}`);
+
+            const formData = new FormData(event.target);
+            const requestData = Object.fromEntries(formData);
+            console.log("Data:", requestData);
+
+            fetch(`http://127.0.0.1:8000/api/v1/alunos/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Sem retorno');
+                }
+                console.log("Informações salvas com sucesso");
+                window.location.href = "index.html";
+            })
+            .catch(error => {
+                console.error('Houve um erro editando as informações:', error);
+            });
+        }
+    </script>
+       
+</body>
+</html>

@@ -2,115 +2,44 @@ var api_url_alunos = 'http://localhost:8000/api/v1/alunos';
 var api_url_usuarios = 'http://localhost:8000/api/v1/usuarios';
 var api_url_professores = 'http://localhost:8000/api/v1/professores';
 
-// Função pela lista de Alunos
-function get_alunos(){
-    fetch(
-        'http://127.0.0.1:8000/api/v1/alunos/',
-        {
-            Headers:
-            {
-                'Accept': 'aplication/json'
-            }
-        }
-    )
-    .then(Response => Response.text())
-    .then(
-        text => {
+// Puxa a lista conforme valor do Button "data-name" no HTML
+function get_list(e) {
+    let list = e.target.dataset.name;
+  
+    fetch(`http://127.0.0.1:8000/api/v1/${list}s`)
+      .then(response => response.json())
+      .then(data => {
+        let thead = document.getElementById("thead-lista");
+        let tbody = document.getElementById("tbody-lista");
+  
+        tbody.innerHTML = "";
+        thead.innerHTML =
+          `<thead>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Email</th>
+            <th>Ações</th>
+          </thead>`;
+  
+        data.forEach(item => {
+          tbody.innerHTML += `
+            <tr>
+              <td>${item.id}</td>
+              <td>${item.nome}</td>
+              <td>${item.idade}</td>
+              <td>${item.email}</td>
+              <td>
+                <a href="edit.html?id=${item.id}">Editar</a>
+                <button onclick="remove(${list.id}, '${list.__typename}', event)">Deletar</button>
+              </td>
+            </tr>`;
+        });
+      });
+  }
+  
 
-            let dados = JSON.parse(text)
-            let tbody = document.getElementById("tbody-lista")
-            tbody.innerHTML = "";
-            dados.forEach(aluno => {
-                tbody.innerHTML += `
-                <tr>
-                    <td>${aluno.id}</td>
-                    <td>${aluno.nome}</td>
-                    <td>${aluno.idade}</td>
-                    <td>${aluno.email}</td>
-                    <td>
-                    <a href="save.html?id=${aluno.id}">editar</a> |
-                    <button onclick='remove(${aluno.id})'>deletar</button>
-                    </td>
-                </tr>
-                `                
-            });
-        }
-    )
-}
-    
-// Função pela lista de Usuarios
-function get_usuarios(){
-    fetch(
-        'http://127.0.0.1:8000/api/v1/usuarios/',
-        {
-            Headers:
-            {
-                'Accept': 'aplication/json'
-            }
-        }
-    )
-    .then(Response => Response.text())
-    .then(
-        text => {
-
-            let dados = JSON.parse(text)
-            let tbody = document.getElementById("tbody-lista")
-            tbody.innerHTML = "";
-            dados.forEach(usuario => {
-                tbody.innerHTML += `
-                <tr>
-                    <td>${usuario.id}</td>
-                    <td>${usuario.nome}</td>
-                    <td>${usuario.idade}</td>
-                    <td>${usuario.email}</td>
-                    <td>
-                    <a href="save.html?id=${usuario.id}">editar</a> |
-                    <button onclick='remove(${usuario.id})'>deletar</button>
-                    </td>
-                </tr>
-                `                
-            });
-        }
-    )
-}
-
-// // Função pela lista de Professores
-function get_professores(){
-    fetch(
-        'http://127.0.0.1:8000/api/v1/professores/',
-        {
-            Headers:
-            {
-                'Accept': 'aplication/json'
-            }
-        }
-    )
-    .then(Response => Response.text())
-    .then(
-        text => {
-
-            let dados = JSON.parse(text)
-            let tbody = document.getElementById("tbody-lista")
-            tbody.innerHTML = "";
-            dados.forEach(professor => {
-                tbody.innerHTML += `
-                <tr>
-                    <td>${professor.id}</td>
-                    <td>${professor.nome}</td>
-                    <td>${professor.idade}</td>
-                    <td>${professor.email}</td>
-                    <td>
-                    <a href="save.html?id=${professor.id}">editar</a> |
-                    <button onclick='remove(${professor.id})'>deletar</button>
-                    </td>
-                </tr>
-                `                
-            });
-        }
-    )
-}
-
-// Pegar ID de uma lista
+// Seleciona uma lista e um ID e busca.
 function get_by_id(){
     let list = document.getElementById('lista_busca').value
     let id = document.getElementById('id_busca').value    
@@ -119,48 +48,65 @@ function get_by_id(){
         .then(Response => Response.text())
         .then(
             text => {
-                console.log(text)
-                let dados = JSON.parse(text)                    
-                console.log(dados)
-    
+                let data = JSON.parse(text)      
+                let thead = document.getElementById("thead-lista")
                 let tbody = document.getElementById("tbody-lista")
-                    tbody.innerHTML = "";
+                tbody.innerHTML = "";
+                thead.innerHTML =
+                `                
+                <thead>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Email</th>
+                </thead>
+                `
                     tbody.innerHTML += `
                     <tr>
-                        <td>${dados.id}</td>
-                        <td>${dados.nome}</td>
-                        <td>${dados.idade}</td>
-                        <td>${dados.email}</td>
+                        <td>${data.id}</td>
+                        <td>${data.nome}</td>
+                        <td>${data.idade}</td>
+                        <td>${data.email}</td>
                         <td>
-                        <a href="save.html?id=${dados.id}">editar</a> |
-                        <button onclick='remove(${dados.id})'>deletar</button>
+                        <a href="edit.html?id=${data.id}">editar</a> |
+                        <button onclick='remove(${data.id})'>deletar</button>
                         </td>
                     </tr>
                     `     
-                })                
+                    }
+            )                
 }
 
-// Remover da Lista
-function remove(id){
-    fetch(`${api_url_alunos}/${id}`,{
-        method: 'DELETE',
-        headers: {
-            'Accept': 'application/json'
-        }
+function remove(id, endpoint, event) {
+    fetch(`http://127.0.0.1:8000/api/v1/${endpoint}/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json'
+      }
     })
     .then(response => {
-        if(response.status == 204){
-            get_alunos();
-        }else{
-            alert("Erro");
+      if (response.status == 204) {
+        // Refresh the list after successful removal
+        get_list({target: {dataset: {name: endpoint}}});
+      } else {
+        // Display an error message if the removal was not successful
+        alert('Falhou em remover o item.');
+      }
+    });
+  }
+  
+
+function edit(id, endpoint) {
+    // fetch the resource with the specified id
+    fetch(`http://127.0.0.1:8000/api/v1/${endpoint}/${id}`)
+        .then(response => response.json())
+        .then(data => {
+        // populate the form fields with the data
+        document.getElementById('input-nome').value = data.nome;
+        document.getElementById('input-idade').value = data.idade;
+        document.getElementById('input-email').value = data.email;
+        document.getElementById('form-alunos').setAttribute('onsubmit', `update(event, ${id}, '${endpoint}')`);
+        document.getElementById('btn-form').textContent = 'Atualizar';
         }
-    })
- }
-
-// Editar ID da Lista
-
-
-function get_list(e) {
-    console.log(e.target.dataset.name)
+    )
 }
-

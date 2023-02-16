@@ -8,10 +8,12 @@
 </head>
 <body>
     <div>
-        <!-- <button onclick="get_list(event); return false;" data-name="aluno">Alunos</button> -->
-        <button onclick="get_alunos()">Alunos</button>
-        <button onclick="get_usuarios()">Usuarios</button>
-        <button onclick="get_professores()">Professores</button>
+        <button onclick="get_list(event); return false;" data-name="aluno">Alunos</button>
+        <button onclick="get_list(event); return false;" data-name="usuario">Usuários</button>
+        <button onclick="get_list(event); return false;" data-name="professore">Professores</button>
+        <!-- <button onclick="get_alunos()">Alunos</button> -->
+        <!-- <button onclick="get_usuarios()">Usuarios</button>
+        <button onclick="get_professores()">Professores</button> -->
     </div>
     <div>
         <!-- <input type="text" name="id_busca" id="id_busca" placeholder="Digite o ID do aluno">
@@ -26,15 +28,8 @@
         <button onclick="get_by_id()">Buscar</button>
     </div>
     <table>
-        <thead>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Idade</th>
-            <th>Email</th>
-        </thead>
-        <tbody id="tbody-lista">
-            
-        </tbody>
+        <thead id="thead-lista"></thead>
+        <tbody id="tbody-lista"></tbody>
     </table>
 
     <a href="index.html">Início</a>

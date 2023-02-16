@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Novo Usuário</title>
+</head>
+<body>
+   <form id="form-usuarios" method="post" onsubmit="save()">
+
+
+   <input type="text" name="id" id="id" readonly placeholder="Id">
+   <input type="text" name="nome" id="nome" placeholder="Nome">
+   <input type="text" name="idade" id="idade" placeholder="Idade">
+   <input type="text" name="email" id="email" placeholder="email">
+
+
+   <input type="submit" value="salvar">
+
+
+   </form>
+
+   <h5 id="mensagem"></h5>
+   
+   <a href="usuarios.html">Voltar para lista</a>
+
+
+   <script src="scriptusuario.js"></script>
+
+   <script>
+       document.getElementById('form-usuarios').addEventListener('submit', e => {
+           e.preventDefault()
+       })
+       // pegar parametros url no caso de editar
+       const queryString = window.location.search;
+       const urlParams = new URLSearchParams(queryString);
+       const id = urlParams.get('id');
+       if(id != null){
+           load_usuario(id);
+       }
+   </script>
+   
+</body>
+</html>
