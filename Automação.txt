@@ -1,0 +1,14 @@
+Passos
+* Criar venv
+--------------
+Instalar as seguintes bibliotecas
+pip install pyautogui
+pip install rpa
+pip install pandas
+pip install opencv-python
+--------------
+Criar o "Requirements"
+pip freeze > requirements.txt
+***
+Pra instalar o requirements
+pip install -r requirements.txt
