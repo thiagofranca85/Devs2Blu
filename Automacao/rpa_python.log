@@ -1,3 +1,14 @@
-Unable to load script C:\Users\thiago.franca\Documents\Devs2Blu\Automacao\rpa_python.js; check file syntax
 
-  phantomjs://code/bootstrap.js:113 in __die
+START - automation started - Tue Feb 21 2023 02:00:01 GMT-0300 (Hora oficial do Brasil)
+
+LIVE MODE - type done to quit
+ [RPA][STARTED]
+[RPA][0] - listening for inputs
+[RPA][1] - https://www.google.com
+[RPA][1] - listening for inputs
+[RPA][2] - exist_result = exist('//*[@name="q"]').toString()
+[RPA][2] - listening for inputs
+[RPA][3] - dump exist_result to rpa_python.txt
+[RPA][3] - listening for inputs
+[RPA][4] - type //*[@name="q"] as Como curar a tosse do pedro?[enter]
+[RPA][4] - listening for inputs
