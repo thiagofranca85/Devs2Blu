@@ -1,5 +1,5 @@
 
-START - automation started - Tue Feb 21 2023 02:00:01 GMT-0300 (Hora oficial do Brasil)
+START - automation started - Tue Feb 21 2023 19:33:29 GMT-0300 (Hora oficial do Brasil)
 
 LIVE MODE - type done to quit
  [RPA][STARTED]
@@ -10,5 +10,11 @@ LIVE MODE - type done to quit
 [RPA][2] - listening for inputs
 [RPA][3] - dump exist_result to rpa_python.txt
 [RPA][3] - listening for inputs
-[RPA][4] - type //*[@name="q"] as Como curar a tosse do pedro?[enter]
+[RPA][4] - type //*[@name="q"] as Como parecer PRO jogando PUBG?[enter]
 [RPA][4] - listening for inputs
+[RPA][5] - exist_result = exist('//*[@id="rso"]/div[3]/div/div/div/video-voyager/div/div[1]/div[1]/div/a/h3').toString()
+[RPA][5] - listening for inputs
+[RPA][6] - dump exist_result to rpa_python.txt
+[RPA][6] - listening for inputs
+[RPA][7] - click //*[@id="rso"]/div[3]/div/div/div/video-voyager/div/div[1]/div[1]/div/a/h3
+[RPA][7] - listening for inputs

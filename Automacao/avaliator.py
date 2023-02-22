@@ -1,6 +1,5 @@
 import pyautogui as p
 import rpa as r
-import tagui as t
 
 # # Acesso ao Navegador, Site e Avaliação pelo pyautogui
 # url = 'https://externo.proway.com.br/login-aluno'
@@ -29,7 +28,10 @@ import tagui as t
 
 r.init()
 r.url('https://www.google.com')
-r.type('//*[@name="q"]', 'Como curar a tosse do pedro?[enter]')
+r.type('//*[@name="q"]', 'Como parecer PRO jogando PUBG?[enter]')
+r.click('//*[@id="rso"]/div[3]/div/div/div/video-voyager/div/div[1]/div[1]/div/a/h3')
+
+
 
 
 
