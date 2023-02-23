@@ -1,15 +1,12 @@
-import urllib.request
 import requests
 import os
-
 from html.parser import HTMLParser
-
 from bs4 import BeautifulSoup as bs
-import re
 
-import pandas as pd
+# Esse arquivo usei pra aprender a coletar os dados inicialmente
+# Ele busca nome, valores etc da pagina INDEX do produto
 
-url = 'https://makelymodaintima.meucatalogodigital.com'
+url = 'site aqui'
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3'}
 
@@ -40,7 +37,7 @@ print(tamanho_produto)
 print(valor_produto)
 
 # Pra testar buscar informações das seleções do produto #1 [0]
-url2 = 'https://makelymodaintima.meucatalogodigital.com/produto/1103202/'
+url2 = 'link do site + produto'
 r2 = requests.get(url = url2, headers = headers)
 pageselecoes = bs(r2.text, 'html.parser')
 
@@ -55,14 +52,8 @@ for imagem in dadosImagens:
 
 print(linksImagens)
 
-# print(len(todosLinks))
 
 
-# print(page.content)
-# print(bs(page.content, "html.parser"))
-
-# Extrair todos os links
-# Lista de links
 
 
 
