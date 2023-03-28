@@ -12,7 +12,7 @@ O que eu estou usando no meu PC (Windows 10) é:
 Alterar 2 Arquivos do sistema (Ubuntu) usando algum editor de texto, por exemplo o VIM.
 Por exemplo, pra abrir o arquivo voce pode usar este comando, usando o VIM como exemplo.
 
-** 1º Arquivo
+** 1º Arquivo (2 Formas de fazer isso, conforme abaixo)
 ** Dica Após abrir os arquivos com o VIM aperte "i" para habilitar a edição dos arquivos. **
 
 "sudo vim /etc/sudoers.d" (Sem as aspas)
@@ -27,6 +27,28 @@ username ALL = (ALL) NOPASSWD: /usr/sbin/service docker *
 
 Depois pra salvar o arquivo aperte ":" e digite "wq!" , por padrao no VIM ":wq" ja salva e fecha o arquivo,
 mas precisa do "!" para dar override, pois se trata de um arquivo de sistema.
+**
+
+Outra forma - Digite "sudo visudo"
+Procure estas linhas no final do arquivo
+"
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+
+# Members of the admin group may gain root privileges
+%admin ALL=(ALL) NOPASSWD: ALL
+
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) NOPASSWD: ALL
+
+# See sudoers(5) for more information on "@include" directives:
+
+@includedir /etc/sudoers.d
+"
+
+Basta adicionar o NOPASSWD: como nas 2 linhas acima.
+Após editar aperte CTRL + X e Y (Save) e nao altere o nome do arquivo. (Enter)
+
 
 ** 2º Arquivo
 
