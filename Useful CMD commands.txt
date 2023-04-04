@@ -39,3 +39,10 @@ route print
 route add
 route delete
 shutdown /r /fw /f /t 0
+
+netsh wlan show profile (Lista as Wifi da rede)
+Pra pegar a senha da wifi
+netsh wlan show profile "nomedawifi" key=clear
+
+Como criar um QRCode por linha de comando
+curl qrenco.de/https://endereço_do_site
