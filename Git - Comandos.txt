@@ -1,4 +1,19 @@
-# Comando pra criar branch
+# Comandos para configurar o Git após instalação (Ou ele pede no primeiro pull pra você logar com email e senha)
+git config --global user.name "Your Name"
+git config --global user.email "yourname@example.com"
+
+# Setar a branch para main caso ela não esteja no padrão novo
+git config --global init.defaultBranch main
+
+# Colorful Output 
+git config --global color.ui auto
+
+# Source desse código acima
+https://www.theodinproject.com/lessons/foundations-setting-up-git
+
+######################################################################
+
+# Comandos pra criar branch
 git checkout -b <nomedabranch>
 Sem o -b e o nome da branch vc muda para outra branch
 
@@ -21,10 +36,10 @@ main
 # Comando enviados pelo professor em aula
 
             Manipulando branch
-criando branch
+Criando branch
 git checkout -b nome branch
 
-verificando branch
+Verificando branch
 git branch 
 
 mudando de branch
