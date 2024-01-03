@@ -12,6 +12,20 @@ git config --global color.ui auto
 https://www.theodinproject.com/lessons/foundations-setting-up-git
 
 ######################################################################
+Pra pegar a chave SSH e registrar no Windows e no Ubuntu
+Windows:
+Após digitar no CMD/PowerShell - ssh-keygen ele vai gerar a chave e colocar 
+na pasta do seu usuário do windows/.shh
+Basta acessar a basta com o terminal e dentro dela digitar "type id_rsa.pub"
+Copiar este código e adicionar no github pra validar.
+
+No Ubuntu após gerar a chave SSH basta digitar:
+"cat ~/.ssh/id_ed25519.pub"
+Copiar a chave na sua conta gibhub e registrar.
+
+As chaves são registradas dentro de Settings na sua conta do GitHub
+
+######################################################################
 
 # Comandos pra criar branch
 git checkout -b <nomedabranch>
