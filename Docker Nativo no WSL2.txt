@@ -9,6 +9,9 @@ Porque o uso de memoria é significantemente menor do que usar o Docker for Wind
 
 O que eu estou usando no meu PC (Windows 10) é:
 
+Se precisar de acesso a pasta root do Ubuntu através de outro usuário que nao seja o root basta digitar este comando no terminal
+sudo chmod -R 777 /root
+
 Alterar 2 Arquivos do sistema (Ubuntu) usando algum editor de texto, por exemplo o VIM.
 Por exemplo, pra abrir o arquivo voce pode usar este comando, usando o VIM como exemplo.
 
