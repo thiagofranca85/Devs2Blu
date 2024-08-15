@@ -68,6 +68,13 @@ Basta alterar depois do @ exatamente para o Host que estamos utilizando, configu
 Para listas todas as suas chaves SSH cadastradas na máquina basta digitar o seguinte comando no prompt ou terminal
 ssh-add -l
 
+#### Usando HTTPs ####
+Outra forma para clonar repositórios diferente do padrão usando HTTPS ao invés de SSH é da seguinte forma:
+## git clone https://thiago-kore@github.com/Thiago-Kore/kore.world.git
+Ao copiar o link do Git ele não vem dessa forma acima, basta adicionar o usuario do Git que você esta clonando na URL:
+git clone https://  "thiago-kore@"   github.com/Thiago-Kore/kore.world.git  <- Como neste exemplo. ** Coloquei espaços e aspas pra destacar apenas.
+Adicionando o usuário ao clicar enter vai abrir o Pop-up para logar na conta do Git em questão.
+
 ######################################################################
 
 # Comandos pra criar branch
