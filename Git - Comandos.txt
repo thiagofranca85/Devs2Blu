@@ -19,6 +19,7 @@ A chave publica .pub é a que deve ser cadastrada no settings no GitHub.
 A chave privada é a que deve ser usada na máquina no usuário.
 
 Windows:
+## No prompt esta na pasta usuario/.ssh antes de digitar os comandos abaixo.
 Comando pra gerar a Chave SSH no Windows
 ssh-keygen -t rsa -b 4096 -C "seuemail@seuemail.com"
 # Para adicionar a chave ao agente GIT
