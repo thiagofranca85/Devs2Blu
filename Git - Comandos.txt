@@ -15,12 +15,16 @@ https://www.theodinproject.com/lessons/foundations-setting-up-git
 Pra pegar a chave SSH e registrar no Windows e no Ubuntu
 Chaves RSA ou ED25591 tem a mesma finalidade.
 
+A chave publica .pub é a que deve ser cadastrada no settings no GitHub.
+A chave privada é a que deve ser usada na máquina no usuário.
+
 Windows:
 Comando pra gerar a Chave SSH no Windows
 ssh-keygen -t rsa -b 4096 -C "thiagoaugusto.franca@hotmail.com"
 # Para adicionar a chave ao agente GIT
 ssh-add C:\Users\SeuUsuário\.ssh\id_rsa ou id_rsa_algo (O nome você pode escolher na geração da Chave)
 NOTA: Ao adicionar a chave ao agente GIT deve ser sempre a chave Privada, sem o ".pub" no final, dentro da pasta .ssh .
+Estando na pasta .ssh no Windows para digitar "type <nomedachave>.pub" , copiar e colocar nas settings do Github.
 
 Basta acessar a basta com o terminal e dentro dela digitar "type id_rsa.pub" ou o nome que vc escolheu no File name.
 Copiar este código e adicionar no github pra validar.
