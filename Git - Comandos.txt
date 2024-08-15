@@ -20,7 +20,7 @@ A chave privada é a que deve ser usada na máquina no usuário.
 
 Windows:
 Comando pra gerar a Chave SSH no Windows
-ssh-keygen -t rsa -b 4096 -C "thiagoaugusto.franca@hotmail.com"
+ssh-keygen -t rsa -b 4096 -C "seuemail@seuemail.com"
 # Para adicionar a chave ao agente GIT
 ssh-add C:\Users\SeuUsuário\.ssh\id_rsa ou id_rsa_algo (O nome você pode escolher na geração da Chave)
 NOTA: Ao adicionar a chave ao agente GIT deve ser sempre a chave Privada, sem o ".pub" no final, dentro da pasta .ssh .
