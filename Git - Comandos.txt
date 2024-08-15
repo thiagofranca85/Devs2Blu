@@ -63,6 +63,11 @@ A diferença ao clonar para a segunda conta neste caso é a seguinte, criamos o 
 portanto o comando git para clonar para esta segunda conta Git fica assim:
 git clone git@github.com-work:endereçodorepositório
 Basta alterar depois do @ exatamente para o Host que estamos utilizando, configurado no arquivo Config da pasta .ssh.
+
+## Informações sobre as Chaves ##
+Para listas todas as suas chaves SSH cadastradas na máquina basta digitar o seguinte comando no prompt ou terminal
+ssh-add -l
+
 ######################################################################
 
 # Comandos pra criar branch
